@@ -1,0 +1,1 @@
+{"name":"lisii-home-server","version":"0.1.0","private":true,"scripts":{"start":"node index.cjs"},"dependencies":{"ws":"8.23.0"}}

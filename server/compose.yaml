@@ -1,0 +1,12 @@
+services:
+  room-server:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - lisii-data:/data
+    restart: unless-stopped
+volumes:
+  lisii-data:

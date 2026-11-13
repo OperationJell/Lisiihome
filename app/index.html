@@ -1,0 +1,22 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' ws: wss:; object-src 'none'; base-uri 'none'"><title>LISII HOME</title><link rel="stylesheet" href="style.css"></head><body>
+<div id="splash"><div class="emblem"><img src="assets/logo.png" alt="LISII HOME"><i id="fox-eye"></i></div></div>
+<main id="game" hidden>
+ <canvas id="scene" width="1402" height="1122" aria-label="Домик LISII HOME"></canvas>
+ <div id="roof" title="Перетащить домик за крышу"></div>
+ <nav id="toolbar" aria-label="Управление"><button id="connection" title="Комната и подключение"><span id="dot"></span><span id="count">1/2</span></button><button id="settings" title="Настройки">⚙</button><button id="minimize" title="Свернуть">−</button><button id="close" title="Выйти из игры">×</button></nav>
+ <div id="timer" hidden>◷ <span>00:00:00</span></div>
+ <div id="tip"></div><div id="toast" role="status" hidden></div>
+ <section id="moods" class="panel" hidden><div class="eyebrow">КАК ТЫ СЕБЯ ЧУВСТВУЕШЬ?</div><div class="mood-options"><button data-mood="tired"><span>😓</span>Усталость</button><button data-mood="normal"><span>😐</span>Норма</button><button data-mood="sleepy"><span>😴</span>Сон</button><button data-mood="happy"><span>☺</span>Радость</button><button data-mood="hungry"><span>🍔</span>Голод</button></div></section>
+ <section id="lobby" class="panel" hidden>
+  <button class="panel-close" data-dismiss="lobby" aria-label="Закрыть">×</button>
+  <div class="eyebrow">ВАШ МАЛЕНЬКИЙ ОБЩИЙ МИР</div><h1>LISII HOME</h1><p class="subtitle">Два человека. Один уютный дом.</p>
+  <div id="saved-room" hidden><div class="room-label">ВАША КОМНАТА</div><div class="code-row"><strong id="room-code"></strong><button id="copy-code">Копировать</button></div><p id="role-label"></p><button id="reconnect" class="primary">Подключиться снова</button><button id="reset-guest" class="quiet" hidden>Освободить место гостя</button><hr></div>
+  <label>Сервер комнаты<input id="server-url" placeholder="wss://ваш-сервер" autocomplete="url" spellcheck="false"></label>
+  <p class="hint">Адрес нужен один раз. Для игры через интернет сервер должен быть постоянно доступен.</p>
+  <button id="create-room" class="primary">Создать комнату · девушка</button>
+  <div class="join-row"><input id="join-code" placeholder="Код комнаты" maxlength="10" aria-label="Код комнаты"><button id="join-room">Войти · парень</button></div>
+  <div id="network-message" role="status"></div>
+  <button id="offline" class="quiet">Пока побыть дома без подключения</button>
+ </section>
+ <section id="preferences" class="panel" hidden><button class="panel-close" data-dismiss="preferences">×</button><div class="eyebrow">LISII HOME · <span id="version">0.1.0</span></div><h2>Настройки</h2><p>Крыша — перемещение.<br>Колесо над домиком — размер.<br>Мебель — сесть или лечь.<br>Свой персонаж — настроение.<br>Кот — «Эу».</p><label>Адрес обновлений<input id="update-url" placeholder="https://ваш-сервер/releases/"></label><button id="save-update">Сохранить адрес</button><button id="check-update">Проверить обновления</button><div id="update-status" role="status"></div><button id="download-update" class="primary" hidden>Скачать обновление</button><button id="install-update" class="primary" hidden>Установить и перезапустить</button><hr><div id="offline-tools"><p class="hint">Локальный просмотр двух персонажей</p><button id="switch-role">Управлять парнем</button></div><p class="hint">Положение, размер и подключение сохраняются автоматически.</p></section>
+</main><script src="renderer.js"></script></body></html>

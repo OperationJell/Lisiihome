@@ -1,0 +1,56 @@
+{
+  "name": "lisii-home",
+  "version": "0.1.0",
+  "description": "A tiny shared home above your desktop",
+  "author": "LISII HOME",
+  "license": "UNLICENSED",
+  "main": "app/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "server": "node server/index.cjs",
+    "test": "node --test test/*.test.cjs",
+    "build:win": "electron-builder --win nsis --x64 --publish never",
+    "preview": "node server/preview.cjs",
+    "build:linux-win": "node scripts/build-linux.cjs"
+  },
+  "dependencies": {
+    "electron-updater": "6.8.3",
+    "ws": "8.23.0"
+  },
+  "devDependencies": {
+    "electron": "45.3.1",
+    "electron-builder": "26.18.0",
+    "@napi-rs/canvas": "1.1.1",
+    "jsdom": "31.0.1"
+  },
+  "build": {
+    "appId": "home.lisii.desktop",
+    "productName": "LISII HOME",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "app/**/*",
+      "package.json",
+      "server/index.cjs"
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false,
+      "artifactName": "LISII-HOME-Setup-${version}.${ext}",
+      "icon": "app/assets/logo.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "include": "scripts/installer.nsh"
+    },
+    "publish": {
+      "provider": "generic",
+      "url": "https://updates.invalid/lisii-home/"
+    }
+  }
+}
